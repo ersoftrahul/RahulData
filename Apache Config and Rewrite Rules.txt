@@ -1,0 +1,12 @@
+<Directory "/export/apache2/htdocs">
+    
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
+
+# We redirect all such requests to a particular named vhost:
+    RewriteCond %{HTTP_HOST}    ^(.*)$
+    RewriteRule ^(.*)$  http://my.site.of.choice [R=permanent,L]
+
